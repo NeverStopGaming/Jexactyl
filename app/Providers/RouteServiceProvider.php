@@ -95,7 +95,7 @@ class RouteServiceProvider extends ServiceProvider
 
         // Stops users from renewing or editing servers many times in quick succession.
         RateLimiter::for('server-edit', function (Request $request) {
-            return Limit::perMinute(5)->by($request->user()->id);
+            return Limit::perMinute(20)->by($request->user()->id);
         });
 
         // Configure the throttles for both the application and client APIs below.
